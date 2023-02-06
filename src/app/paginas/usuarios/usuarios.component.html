@@ -48,12 +48,12 @@
 </div>
 
 <div class="usuarios">
-    <ng-container *ngFor="let u of listUsers">
-        <ng-container *ngTemplateOutlet="v_usuario; context:{user:u}"></ng-container>
+    <ng-container *ngFor="let u of listUsers; index as i">
+        <ng-container *ngTemplateOutlet="v_usuario; context:{user:u,index:i}"></ng-container>
     </ng-container>
 </div>
 
-<ng-template #v_usuario let-user>
+<ng-template #v_usuario let-user="user" let-i="index">
     <div>
         <img src="/assets/alien-soldier.png" alt="">
         <div>
