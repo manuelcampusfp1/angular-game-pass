@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Usuario } from 'src/app/modelos/usuario';
+import { UsuarioService } from 'src/app/servicios/usuario.service';
 
 @Component({
   selector: 'app-usuarios',
@@ -11,14 +12,9 @@ export class UsuariosComponent {
   public listUsers:Usuario[];
   public ocultar:boolean;
 
-  constructor(){
-    this.user = new Usuario("luis","molina","luismolina@gmail.com");
-    this.listUsers = [
-      new Usuario("luis","molina","luismolina@gmail.com"),
-      new Usuario("angel","molina","luismolina@gmail.com","1234"),
-      new Usuario("ana","molina","luismolina@gmail.com"),
-      new Usuario("laura","molina","luismolina@gmail.com")
-    ]
+  constructor(public usuarioService: UsuarioService){
+    this.user = usuarioService.user;
+    this.listUsers = usuarioService.listUsers;
     this.ocultar = true;
   }
 

@@ -49,13 +49,15 @@
 
 <div class="usuarios">
     <ng-container *ngFor="let u of listUsers; index as i">
-        <ng-container *ngTemplateOutlet="v_usuario; context:{user:u,index:i}"></ng-container>
+        <ng-container *ngIf="u.password==''">
+            <ng-container *ngTemplateOutlet="v_usuario; context:{user:u,index:i}"></ng-container>
+        </ng-container>
     </ng-container>
 </div>
 
 <ng-template #v_usuario let-user="user" let-i="index">
     <div>
-        <img src="/assets/alien-soldier.png" alt="">
+        <img src="/assets/alien-soldier{{i+1}}.png" alt="">
         <div>
             <p><b>nombre</b> {{user.nombre}}</p>
             <p><b>apellidos</b> {{user.apellidos}}</p>
