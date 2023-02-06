@@ -1,0 +1,26 @@
+.contenedor {
+    display: flex;
+}
+
+.izquierda {
+    width: 30%;
+}
+
+.derecha {
+    width: 70%;
+}
+
+table {
+    width: 80%;
+    margin: 0 10%;
+}
+
+.usuarios {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap
+}
+
+.usuarios img {
+    max-width: 200px
+}

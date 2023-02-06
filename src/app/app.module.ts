@@ -8,6 +8,8 @@ import { FooterComponent } from './componentes/footer/footer.component';
 import { HomeComponent } from './paginas/home/home.component';
 import { ContactComponent } from './paginas/contact/contact.component';
 import { UsuariosComponent } from './paginas/usuarios/usuarios.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { UsuariosComponent } from './paginas/usuarios/usuarios.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

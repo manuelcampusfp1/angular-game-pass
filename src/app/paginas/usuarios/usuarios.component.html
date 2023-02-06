@@ -1,3 +1,65 @@
-<p>nombre:</p>
-<p>apellidos:</p>
-<p>correo:</p>
+<div class="contenedor">
+    <div class="izquierda">
+        <p [class]="user.nombre">nombre: {{user.nombre}}</p>
+        <p [hidden]="ocultar">apellidos: {{user.apellidos}}</p>
+        <p [hidden]="ocultar">email: {{user.email}}</p>
+        <button class="{{user.nombre}}" (click)="mostrarInfo()">mostrar info</button>
+        <br><br><br>
+
+        <div>
+            <h3>insertar</h3>
+            <label for="nombre">nombre:</label>
+            <input type="text" id="nombre" #nombre><br>
+            <label for="apellido">apellido:</label>
+            <input type="text" id="apellido" #apellido><br>
+            <label for="email">email:</label>
+            <input type="text" id="email" #email><br>
+            <button (click)="cambiarInfo(nombre, apellido, email.value)">cambiar</button>
+        </div>
+
+        <div>
+            <h3>modificar</h3>
+            <label for="nombre">nombre:</label>
+            <input [(ngModel)]="user.nombre" type="text" id="nombre"><br>
+            <label for="apellido">apellido:</label>
+            <input [(ngModel)]="user.apellidos" type="text" id="apellido"><br>
+            <label for="email">email:</label>
+            <input [(ngModel)]="user.email" type="text" id="email"><br>
+        </div>
+    </div>
+    <div class="derecha">
+        <table border="1">
+            <tr>
+                <th>nombre</th>
+                <th>apellido</th>
+                <th>email</th>
+            </tr>
+            <tr *ngFor="let u of listUsers">
+                <td>{{u.nombre}}</td>
+                <td>{{u.apellidos}}</td>
+                <td>{{u.email}}</td>
+                <td>
+                    <button *ngIf="u.password!=''">cambiar password</button>
+                    <ng-container *ngIf="u.password==''">desactivado </ng-container>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="usuarios">
+    <ng-container *ngFor="let u of listUsers">
+        <ng-container *ngTemplateOutlet="v_usuario; context:{user:u}"></ng-container>
+    </ng-container>
+</div>
+
+<ng-template #v_usuario let-user>
+    <div>
+        <img src="/assets/alien-soldier.png" alt="">
+        <div>
+            <p><b>nombre</b> {{user.nombre}}</p>
+            <p><b>apellidos</b> {{user.apellidos}}</p>
+            <p><b>correos</b> {{user.email}}</p>
+        </div>
+    </div>
+</ng-template>
