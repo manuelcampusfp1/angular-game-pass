@@ -11,6 +11,7 @@ export class UsuariosComponent {
   public user:Usuario;
   public listUsers:Usuario[];
   public ocultar:boolean;
+  public ocultar2:boolean;
 
   constructor(public usuarioService: UsuarioService){
     this.user = usuarioService.user;
@@ -28,6 +29,12 @@ export class UsuariosComponent {
 
     //se puede hacer una funcion para que el apellido cumpla ciertos criterios
     apellido.style.borderColor ="red";
+  }
+
+  
+  activarPasswd(password: HTMLInputElement){
+    console.log("activar passwd")
+    password.style.visibility="visible";
   }
 
 }

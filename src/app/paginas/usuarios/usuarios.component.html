@@ -39,7 +39,8 @@
                 <td>{{u.apellidos}}</td>
                 <td>{{u.email}}</td>
                 <td>
-                    <button *ngIf="u.password!=''">cambiar password</button>
+                    <button *ngIf="u.password!=''" (click)="activarPasswd()">cambiar password</button>
+                    <input type="text" #password [hidden]="true" *ngIf="u.passwdord!=''">
                     <ng-container *ngIf="u.password==''">desactivado </ng-container>
                 </td>
             </tr>

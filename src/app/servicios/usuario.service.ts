@@ -17,5 +17,14 @@ export class UsuarioService {
       new Usuario("laura","molina","luismolina@gmail.com")
     ]
   }
+
+  eliminarUsuario(correo: string){
+    for (let i = 0; i < this.listUsers.length; i++){
+      if(this.listUsers[i].email == correo){
+        this.listUsers.splice(i, 1);
+      }
+    }
+  }
+
 }
 
